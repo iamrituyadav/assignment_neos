@@ -11,7 +11,7 @@ export default function TodoInput() {
   // debugger;
   const [todoInput, setTodoInput] = useState({
     userId: user,
-    todoID: uuidv4(),
+    todoId: uuidv4(),
     todo: {
       name: "",
       status: false,
