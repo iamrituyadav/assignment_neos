@@ -37,7 +37,7 @@ router.post("/create", (req, res) => {
 
 router.patch("/edit", (req, res) => {
   let todo = data.todo_data.filter((e) => {
-    return req.body.todoId !== JSON.parse(e.todoId);
+    return JSON.stringify(req.body.todoId) !== JSON.stringify(e.todoId);
   });
 
   // send {userId, todoId, todo:{name, status}}
@@ -50,7 +50,10 @@ router.patch("/edit", (req, res) => {
 
 router.delete("/delete", (req, res) => {
   let todo = data.todo_data.filter((e) => {
-    return JSON.parse(req.body.todoId) !== JSON.parse(e.todoId);
+    // console.log(JSON.stringify(req.body.todoId));
+    // console.log(JSON.stringify(req.body.todoId) !== JSON.stringify(e.todoId));
+    return JSON.stringify(req.body.todoId) !== JSON.stringify(e.todoId);
+    // return req.body.todoId !== e.todoId;
   });
 
   // send userId ib params, todoId in body
